@@ -1,0 +1,20 @@
+package com.jbj338033.kotlinswaggertemplate.config
+
+import io.swagger.v3.oas.models.OpenAPI
+import io.swagger.v3.oas.models.info.Info
+import org.springdoc.core.GroupedOpenApi
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+
+@Configuration
+class SwaggerConfig {
+    @Bean
+    fun publicApi(): GroupedOpenApi {
+        return GroupedOpenApi.builder().group("v12").pathsToMatch("/**").build()
+    }
+
+    @Bean
+    fun openApi(): OpenAPI {
+        return OpenAPI().info(Info().title("Swagger Template").description("Swagger Template with Kotlin").version("v0.0.1"))
+    }
+}
